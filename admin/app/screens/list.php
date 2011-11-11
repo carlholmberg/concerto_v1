@@ -83,11 +83,11 @@ foreach($this->screens as $screen){
    }
    
 ?>
-  <a href="<?phpecho ADMIN_URL?>/screens/show/<?php echo $screen->id ?>">
+  <a href="<?php echo ADMIN_URL?>/screens/show/<?php echo $screen->id ?>">
     <div class="roundcont roundcont_sf">
 			<div class="roundtop"><span class="rt"><img src="<?php echo ADMIN_BASE_URL ?>/images/blsp.gif" height="6" width="1" alt="" /></span></div>
 			<div class="roundcont_main sf">
-				<img src="<?phpecho ADMIN_BASE_URL?>/images/<?phpecho $scrimg?>" 
+				<img src="<?php echo ADMIN_BASE_URL?>/images/<?php echo $scrimg?>" 
                  height="100" alt="" onclick="window.location='<?php echo ADMIN_URL?>/screens/show/<?php echo $screen->id?>'" /><br />
 				<div class="sf_header">
 					<p style="color:<?php echo $statcolor ?>;"><?php echo $status ?></p>

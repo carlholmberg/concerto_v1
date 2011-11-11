@@ -34,15 +34,15 @@
       <ul>
 	<?php if(is_array($this->group->get_members())) 
 	foreach ($this->group->get_members() as $user) { ?>
-	   <li><a href="<?phpecho ADMIN_URL ?>/users/show/<?phpecho $user->username ?>"><?phpecho $user->name ?></a>
-	   <?phpif ($this->canEdit) { ?>
-           ( <a href="<?phpecho ADMIN_URL ?>/groups/remove/<?phpecho $this->group->id ?>?user=<?phpecho $user->username?>">Remove</a> )	     
+	   <li><a href="<?php echo ADMIN_URL ?>/users/show/<?php echo $user->username ?>"><?php echo $user->name ?></a>
+	   <?php if ($this->canEdit) { ?>
+           ( <a href="<?php echo ADMIN_URL ?>/groups/remove/<?php echo $this->group->id ?>?user=<?php echo $user->username?>">Remove</a> )	     
 	   <?php } ?>
 	 </li>
 	<?php }  else echo "<p>None</p>";?> 
       </ul>
 
-	<?phpif(is_array($this->feeds)&&count($this->feeds)>0) { ?>
+	<?php if(is_array($this->feeds)&&count($this->feeds)>0) { ?>
 	<br />
 	<h3>Feeds:</h3>
 	
@@ -139,11 +139,11 @@ foreach($this->screens as $screen){
       }
    }
 	?>
-  <a href="<?phpecho ADMIN_URL?>/screens/show/<?php echo $screen->id ?>">
+  <a href="<?php echo ADMIN_URL?>/screens/show/<?php echo $screen->id ?>">
     <div class="roundcont roundcont_sf">
 			<div class="roundtop"><span class="rt"><img src="<?php echo ADMIN_BASE_URL ?>/images/blsp.gif" height="6" width="1" alt="" /></span></div>
 			<div class="roundcont_main sf">
-				<img src="<?phpecho ADMIN_BASE_URL?>/images/<?phpecho $scrimg?>" height="100" alt="" /><br />
+				<img src="<?php echo ADMIN_BASE_URL?>/images/<?php echo $scrimg?>" height="100" alt="" /><br />
 				<div class="sf_header">
 					<p style="color:<?php echo $statcolor ?>;"><?php echo $status ?></p>
 					<h1><?php echo $screen->name?></h1>

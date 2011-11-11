@@ -95,7 +95,7 @@
 <h3>General Screen Settings <a href="<?php echo ADMIN_URL ?>/pages/show/docs/19#s2"><img class="icon" border="0" src="<?php echo ADMIN_BASE_URL ?>images/help_button.gif" alt="Extra Help" title="Extra Help" /></a></h3>
 <br />
 <div style="text-align:center; width:28%; float:left;">
-	<img src="<?php echo ADMIN_BASE_URL?>/images/<?phpecho $scrimg?>" height="150" style="margin-right:15px !important;" alt="" />
+	<img src="<?php echo ADMIN_BASE_URL?>/images/<?php echo $scrimg?>" height="150" style="margin-right:15px !important;" alt="" />
 </div>
 <div style="clear:none; width:70%; float:right;">
 	<table style="clear:none;" class='edit_win' cellpadding='6' cellspacing='0'>

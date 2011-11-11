@@ -62,7 +62,7 @@ foreach($this->contents as $field=>$contents)
 ?>
 
     <td class="edit_col<?php if (!$notfirst) {$notfirst =1;  echo ' firstrow';} ?>"
-        <?phpif(!$has_imagecol) echo "colspan=2";?>>
+        <?php if(!$has_imagecol) echo "colspan=2";?>>
       <a href="<?php echo ADMIN_URL?>/content/show/<?php echo $content->id ?>">
        <h1><a href="<?php echo ADMIN_URL?>/content/show/<?php echo $content->id ?>"><?php echo $content->name?></a></h1>
        <span style="font-size:1.5em;font-weight:bold;color:#333;margin-bottom:12px;">

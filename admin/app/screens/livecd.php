@@ -48,7 +48,7 @@
 <h3>Create a LiveCD Screen</h3>
 <br />
 <div style="text-align:center; width:28%; float:left;">
-	<img src="<?php echo ADMIN_BASE_URL?>/images/<?phpecho $scrimg?>" height="150" style="margin-right:15px !important;" alt="" />
+	<img src="<?php echo ADMIN_BASE_URL?>/images/<?php echo $scrimg?>" height="150" style="margin-right:15px !important;" alt="" />
 </div>
 <div style="clear:none; width:70%; float:right;">
 	<table style="clear:none;" class='edit_win' cellpadding='6' cellspacing='0'>

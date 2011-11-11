@@ -34,7 +34,7 @@
  });
 })(jQuery);
 //--></script>
-<?phpif($this->canEdit) {?>
+<?php if($this->canEdit) {?>
 <a href="<?php echo ADMIN_URL.'/screens/edit/'.$this->screen->id ?>"><span class="buttonsel"><div class="buttonleft"><img src="<?php echo ADMIN_BASE_URL ?>/images/buttonsel_left.gif" border="0" alt="" /></div><div class="buttonmid"><div class="buttonmid_padding">Edit Screen</div></div><div class="buttonright"><img src="<?php echo ADMIN_BASE_URL ?>/images/buttonsel_right.gif" border="0" alt="" /></div></span></a>
 <a href="<?php echo ADMIN_URL.'/screens/subscriptions/'.$this->screen->id ?>"><span class="buttonsel"><div class="buttonleft"><img src="<?php echo ADMIN_BASE_URL ?>/images/buttonsel_left.gif" border="0" alt="" /></div><div class="buttonmid"><div class="buttonmid_padding">Manage Subscriptions</div></div><div class="buttonright"><img src="<?php echo ADMIN_BASE_URL ?>/images/buttonsel_right.gif" border="0" alt="" /></div></span></a>
 <a href="<?php echo ADMIN_URL.'/screens/delete/'.$this->screen->id ?>"><span class="buttonsel"><div class="buttonleft"><img src="<?php echo ADMIN_BASE_URL ?>/images/buttonsel_left.gif" border="0" alt="" /></div><div class="buttonmid"><div class="buttonmid_padding">Delete Screen</div></div><div class="buttonright"><img src="<?php echo ADMIN_BASE_URL ?>/images/buttonsel_right.gif" border="0" alt="" /></div></span></a><div style="clear:both;height:12px;"></div>
@@ -81,7 +81,7 @@
 ?>
 
 <div style="width:100%;">
-	<div style="float:left; text-align:center; width:350px;"><br /><img src="<?phpecho ADMIN_BASE_URL?>/images/<?phpecho $scrimg?>" alt="" /></div>
+	<div style="float:left; text-align:center; width:350px;"><br /><img src="<?php echo ADMIN_BASE_URL?>/images/<?php echo $scrimg?>" alt="" /></div>
    <div style="float:left">
 	<?php if(!isAdmin()) { ?><br /><?php } ?>
 	<h3>Location: <span class="emph"><?php echo $this->screen->location?></span></h3>
