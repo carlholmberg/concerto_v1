@@ -75,7 +75,7 @@ class User{
 				$this->allow_email = $data['allow_email'];
 
 				//Get firstname for aesthetic output
-				$namesplit = split(" ",$this->name);
+				$namesplit = explode(" ",$this->name);
 				$this->firstname = $namesplit[0]; 
 
 				//Find groups the user belongs to
@@ -144,7 +144,7 @@ class User{
 				$this->allow_email = $allow_email_in;
 				
 				//Get firstname for aesthetic output
-				$namesplit = split(" ",$this->name);
+				$namesplit = explode(" ",$this->name);
 				$this->firstname = $namesplit[0]; 
 
 				$this->set = true;

@@ -332,8 +332,8 @@ class Screen{
 		if(!$this->controls_display){ //If we can't control the screen, it should always be on
 			return true;
 		}
-		list($on_h,$on_m)=split(':',$this->time_on);
-		list($off_h,$off_m)=split(':',$this->time_off);
+		list($on_h,$on_m)=explode(':',$this->time_on);
+		list($off_h,$off_m)=explode(':',$this->time_off);
   		$localtime = localtime();
 
   		$h = $localtime[2];

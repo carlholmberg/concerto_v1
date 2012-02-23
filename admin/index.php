@@ -120,7 +120,7 @@ if(!array_key_exists('PATH_INFO', $_SERVER) ||
 } else {
     $path_info = $_SERVER['PATH_INFO'];
 }
-$request = split('/',trim($path_info,'/'));
+$request = explode('/',trim($path_info,'/'));
 
 //decide what controller we'll be requesting an action from
 $controller = $request[0];

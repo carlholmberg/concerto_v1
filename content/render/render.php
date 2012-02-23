@@ -25,7 +25,7 @@
  */
 
 function render($type, $filename, $width = false, $height = false, $stretch = false){
-	$fileinfo = split("\.", $filename);
+	$fileinfo = explode("\.", $filename);
 	if($type == 'image'){
 		$cache_path = IMAGE_DIR . 'cache/' . $fileinfo[0] . '_' . $width . '_' . $height . '.' . $fileinfo[1];
 		$path = IMAGE_DIR . $filename;
@@ -102,7 +102,7 @@ function cache_parse($threshold = 100){
 		while (!feof($fh)){
 			$line = fgets($fh);
 			$line = str_replace("\n", "", $line);
-			$line_data = split(' ', $line);
+			$line_data = explode(' ', $line);
 			if(count($line_data) == 3){
 				if(isset($data[$line_data[0]][$line_data[1]][$line_data[2]])){
 					$data[$line_data[0]][$line_data[1]][$line_data[2]]++; //Count how many times that content/width/height set apperas
@@ -131,10 +131,10 @@ function cache_parse($threshold = 100){
 	@system("rm $log_file");
 }
 function generate_cache($filename, $width, $height){
-	$path = split('/', $filename);
+	$path = explode('/', $filename);
 
 	$file = end($path);
-	$fileinfo = split("\.", $file);
+	$fileinfo = explode("\.", $file);
 	$type = $path[count($path)-2];
 	
 	if($type == 'images'){
