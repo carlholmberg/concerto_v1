@@ -77,7 +77,7 @@ class ContentDriver{
              $this->screen_id = $screen_id;
              $this->field_id = $field_id;
 	     $sql = "SELECT type_id FROM field WHERE id = $field_id";
-             $res = sql_query($sql);
+         $res = sql_query($sql);
 	     $data = sql_row_keyed($res,0);
 	     $this->type_id = $data['type_id'];
 

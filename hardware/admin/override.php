@@ -24,7 +24,7 @@
  * @version      $Revision$
  */
 
-require_once("dbfuncs.php");
+require_once("../dbfuncs.php");
 init_db( );
 
 
