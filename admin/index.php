@@ -99,6 +99,7 @@ if(!defined('APP_PATH')) {
     define('APP_PATH','app'); //Location of view and controller files
 }
 
+set_magic_quotes_runtime(0);
 session_start(); // I spent 3 hours looking for this!
 
 //Enough setup... Let's get to work
@@ -256,7 +257,7 @@ class Controller
    function __construct()
    {
       $this->controller = 
-         str_replace('Controller','',get_class($this));
+         ereg_replace('Controller','',get_class($this));
       $this->setup();
    }
   
