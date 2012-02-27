@@ -187,7 +187,6 @@ function render_html($content_arr, $criteria){
 <?php if(false===strpos($content->mime_type,'image')){ ?>
 	<div class="concerto_content"><?php echo $content->content ?></div>
 <?php } else { ?>
-	<div class="concerto_content"><img src="<?php echo 'http://' . $_SERVER['SERVER_NAME'] .  $_SERVER['SCRIPT_NAME'] . '?' . criteria_string($criteria) ?>&select=content&select_id=<?php echo $content->id ?>&format=raw" alt="<?php echo htmlspecialchars($content->name) ?>" /></div>
 <?php } ?>
 </div>
 <?php
