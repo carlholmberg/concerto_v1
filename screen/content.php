@@ -39,7 +39,6 @@ if(isset($_REQUEST['id'])){
 } elseif(isset($_REQUEST['screen_id']) && isset($_REQUEST['field_id'])) {
     $driver = new ContentDriver($_REQUEST['screen_id'], $_REQUEST['field_id']);
     $driver->get_content();
-    $driver->ems_check();
     $data = $driver->content_details();
     echo json_encode($data);
 } else {

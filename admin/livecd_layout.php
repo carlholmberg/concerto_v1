@@ -72,16 +72,6 @@
     <p>Copyright &copy; 2009 Rensselaer Polytechnic Institute (Student Senate Web Technologies Group)</p>
   </div>
 </div>
-<?php if(defined('GA_TRACKING') && GA_TRACKING) { ?>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("<?php echo GA_TRACKING ?>");
-pageTracker._trackPageview();
-</script>
-<?php } ?>
 </body>
 </html>
 

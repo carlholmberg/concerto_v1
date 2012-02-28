@@ -266,11 +266,7 @@ class screensController extends Controller
       
       $screen = new Screen($_GET['mac'],true);
 
-      if ($this->is_emergency()) {
-         // All screens go ON when EMS is active
-         //echo "It's an Emergency!";
-         $this->status = true;
-      } else if($screen->set) {
+      if($screen->set) {
          // What does $screen->set do ???
          $this->status = $screen->get_powerstate($h, $m);
          //$this->status = true;
@@ -279,21 +275,6 @@ class screensController extends Controller
       }
    }
 
-   private function is_emergency(){
-      // shamelessly ripped off from common/driver.php and modified slightly
-      if(defined('EMS_FEED_ID') && EMS_FEED_ID != 0){
-        $ems_feed = new Feed(EMS_FEED_ID);
-        if($ems_feed->content_count(1) > 0){
-           return true;
-        } else {
-           //The feed is empty.  All is quiet on the western front
-           return false;
-        }
-      } else {
-        //EMS hasn't been setup
-        return false;
-      }
-   }
    function livecdAction(){
       if(!defined("LIVE_CD_SUPPORT") || LIVE_CD_SUPPORT == false){
         $this->flash('Live CD support has not been configured yet.  Please contact an administrator.','error');

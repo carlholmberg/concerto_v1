@@ -204,32 +204,5 @@ class ContentDriver{
         return true;
     }
 
-    //EMS Display code.
-    //The feed defined in EMS_FEED_ID has priority over all other feeds.  If it has content it will be displayed.
-    function ems_check(){
-        if(defined('EMS_FEED_ID') && EMS_FEED_ID != 0){
-            $ems_feed = new Feed(EMS_FEED_ID);
-            if($ems_feed->content_count(1) > 0){
-		//It appears there is an emergency of sorts
-                $contents = $ems_feed->content_list_by_type($this->type_id,1);
-		if(!$contents){
-                    //There is no EMS content for this location
-                    return false;
-                } else {
-                    $ems_c_id = array_rand($contents,1);
-                    $this->content_id = $ems_c_id;
-                    return true;
-                }
-            } else {
-                //The feed is empty.  All is quiet on the western front
-                return false;
-            }
-        } else {
-            //EMS hasn't been setup
-            return false;
-        }
-    }
-    //End EMS Display Code.
-
 }
 ?>

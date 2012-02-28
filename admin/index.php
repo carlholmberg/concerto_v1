@@ -102,12 +102,6 @@ if(!defined('APP_PATH')) {
 session_start(); // I spent 3 hours looking for this!
 
 //Enough setup... Let's get to work
-//Allow multi-domain setups to point to one single domain
-if(defined('PREFERRED_DOMAIN') && PREFERRED_DOMAIN != $_SERVER['HTTP_HOST']) {
-  header ('HTTP/1.1 301 Moved Permanently');
-  header ('Location: http://' . PREFERRED_DOMAIN . $_SERVER['REQUEST_URI']);
-  exit(0);
-}
 
 //parse request, go to default page if none requested
 if(!array_key_exists('PATH_INFO', $_SERVER) || 

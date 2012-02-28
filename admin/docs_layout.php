@@ -98,16 +98,6 @@ if(is_array($this->menu_links))
    		<p><a href="<?php echo ADMIN_URL ?>/pages/show/docs/">Support Center</a> | <a href="http://webtech.union.rpi.edu/ticket">Submit Help Ticket</a> | <a href="mailto:<?php echo SYSTEM_EMAIL ?>">Contact Us</a></p>
     </div>
   </div>
-<?php if(defined('GA_TRACKING') && GA_TRACKING) { ?>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("<?php echo GA_TRACKING ?>");
-pageTracker._trackPageview();
-</script>
-<?php } ?>
 </body>
 </html>
 
