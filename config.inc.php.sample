@@ -37,8 +37,23 @@ $db_password = 'password';
 $db_database = 'concerto';
 
 //Important paths
+define('ROOT_DIR', dirname(__FILE__).'/');  //server-side path where Concerto lives
 
-define('ROOT_DIR', '/var/www/');                    //server-side path where Concerto lives
+if (!strstr($_SERVER['PHP_SELF'], $_SERVER['SCRIPT_NAME']) && ($sapi= @ php_sapi_name()) == 'cgi') {
+	$site_url = dirname($_SERVER['PHP_SELF']);
+} else {
+	$site_url = dirname($_SERVER['SCRIPT_NAME']);
+}
+$parts = array();
+foreach(explode('/', ROOT_DIR) as $part) {
+	if ($part == "") continue;
+	if (strpos($site_url, $part)) {
+		$parts[] = $part;
+	}
+}
+define('ROOT_URL', '/'.implode('/', $parts).'/'); //the root location where Concerto lives
+
+
 define('COMMON_DIR', ROOT_DIR.'common/');             //server-side path to dir with resources for
                                                        //  multiple portions of Concerto, must end in a "/"
 define('CONTENT_DIR', ROOT_DIR.'content/');      //server-side path to content images
@@ -46,7 +61,6 @@ define('IMAGE_DIR', CONTENT_DIR.'images/');      //server-side path to content i
 define('TEMPLATE_DIR', CONTENT_DIR.'templates/');//server-side path to screen templates
 
 //URLS for hyperlinks and the like
-define('ROOT_URL', '/');                         //the root location where Concerto lives
 define('SCREEN_URL', ROOT_URL.'screen/');        //location of front-end screen program
 define('HARDWARE_URL', ROOT_URL.'hardware/');    //location of management for on-location machines
 define('ADMIN_BASE_URL', ROOT_URL.'admin/');     //base URL on server for images, css, etc. for interface
@@ -56,28 +70,16 @@ define('ADMIN_URL', ADMIN_BASE_URL.'index.php'); //URL that can access this page
 define('DEFAULT_DURATION', 5);                   //Default content duration, in seconds
 define('DEFAULT_WEIGHT', 3);                     //Default position weight
 
-define('EMS_FEED_ID', false);                    //ID of the emergency feed.
 define('ADMIN_GROUP_ID', 0);                     //ID of the User Group for admin functions and contact
-define('GA_TRACKING', false);                    //Define a Google Tracking id if applicable
 define('TICKER_LIMIT', 150);                     //Ticket Text character limit
 define('SYSTEM_EMAIL', 'admin@example.com');    //Email address used for system emails
 
 //Frontpage Selection (uncomment to choose the default info page of category 'front'
 //define('DEFAULT_PATH','pages/show/front');
 
-//Domain Redirection
-//Use this to force visitors to your installation using one domain name
-//to be redirected to the same page they requested, but on a different domain.
-//Useful for aliased or transitioning DNS names.
-//define('PREFERRED_DOMAIN','concerto.example.com');
 
 //Define screen rotation rules
 //The array should be setup as follows, $screen_rotate[screen_id][] = template_id
 //Make sure you have subscriptions setup!
-
-//Optional: Memcache Configuration
-define('MEMCACHE_ENABLE', false); //False disables memcache, true enables it
-define('MEMCACHE_SERVER', 'localhost');
-define('MEMCACHE_PORT', 11211);
 
 ?>
