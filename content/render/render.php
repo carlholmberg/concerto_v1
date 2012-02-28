@@ -25,7 +25,10 @@
  */
 
 function render($type, $filename, $width = false, $height = false, $stretch = false){
-	$fileinfo = explode("\.", $filename);
+	$fileinfo = explode('.', $filename);
+	if (count($fileinfo) < 2) {
+		exit(0);
+	}
 	if($type == 'image'){
 		$cache_path = IMAGE_DIR . 'cache/' . $fileinfo[0] . '_' . $width . '_' . $height . '.' . $fileinfo[1];
 		$path = IMAGE_DIR . $filename;
@@ -33,7 +36,6 @@ function render($type, $filename, $width = false, $height = false, $stretch = fa
 		$cache_path = TEMPLATE_DIR . 'cache/' . $fileinfo[0] . '_' . $width . '_' . $height . '.' . $fileinfo[1];
 		$path = TEMPLATE_DIR . $filename;
 	}
-	
 	$timestamp = filemtime($path);
 	
     //send not modified headers if the image has not been modified since 

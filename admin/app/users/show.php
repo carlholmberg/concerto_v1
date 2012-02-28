@@ -182,7 +182,7 @@ foreach($this->contents['approved'] as $field=>$contents)
 
 <?php
 unset($urls);
-if(is_array($this->contents['denied']) && count($this->contents['denied']>=1))
+if(isset($this->contents['denied']) && is_array($this->contents['denied']) && count($this->contents['denied']>=1))
 {
 foreach(array_keys($this->contents['denied']) as $field)
   $urls[]='<a href="#denied_'.$field.'">'.$field.'</a>'; ?>
@@ -191,7 +191,7 @@ foreach(array_keys($this->contents['denied']) as $field)
 } else {
 	echo "<p><em>This user has had no content denied on all feeds.</em></p>";
 }
-if(is_array($this->contents['denied']))
+if(isset($this->contents['denied']) && is_array($this->contents['denied']))
 foreach($this->contents['denied'] as $field=>$contents)
 {
 	echo "<br /><br />";
@@ -248,7 +248,7 @@ foreach($this->contents['denied'] as $field=>$contents)
 
 <?php
 unset($urls);
-if(is_array($this->contents['pending']) && count($this->contents['pending']>=1))
+if(isset($this->contents['pending']) && is_array($this->contents['pending']) && count($this->contents['pending']>=1))
 {
 foreach(array_keys($this->contents['pending']) as $field)
   $urls[]='<a href="#pending_'.$field.'">'.$field.'</a>'; ?>
@@ -257,7 +257,7 @@ foreach(array_keys($this->contents['pending']) as $field)
 } else {
 	echo "<p><em>This user has had no content pending moderation on all feeds.</em></p>";
 }
-if(is_array($this->contents['pending']))
+if(isset($this->contents['pending']) && is_array($this->contents['pending']))
 foreach($this->contents['pending'] as $field=>$contents)
 {
 	echo "<br /><br />";
