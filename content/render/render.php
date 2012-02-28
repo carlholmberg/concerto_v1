@@ -43,13 +43,7 @@ function render($type, $filename, $width = false, $height = false, $stretch = fa
         header('HTTP/1.0 304 Not Modified');
         return;
     }
-    //Optional memcache setup
-    $memcache_connected = false; //Assume its not working
-    if(defined('MEMCACHE_ENABLE') && MEMCACHE_ENABLE){
-      $memcache = new Memcache();
-      $memcached_connected = $memcache->addServer(MEMCACHE_SERVER,(int)MEMCACHE_PORT);
-      $key = $filename . '_' . $width . '_' . $height;
-    }
+
     
     //lets render the image!
     header("Last-Modified: ".gmdate("D, d M Y H:i:s", $timestamp)." GMT");
@@ -60,11 +54,6 @@ function render($type, $filename, $width = false, $height = false, $stretch = fa
 			header('Content-Length: ' .filesize($cache_path));
 			fpassthru($fp); //If so, then serve it
 			exit(0);
-		} else if(defined('MEMCACHE_ENABLE') && MEMCACHE_ENABLE && $memcached_connected && $dat = $memcache->get($key)){
-			header('Content-type: image/' . $dat['type']);
-			header('Content-Length: ' . mb_strlen($dat['data']));
-			echo $dat['data'];
-			exit(0);
 		} else { 
 			include_once(COMMON_DIR.'image.inc.php');
 			ob_start(); //Start a buffer to catch the image data
@@ -73,11 +62,6 @@ function render($type, $filename, $width = false, $height = false, $stretch = fa
 			$size = mb_strlen($dat);
 			header('Content-Length: ' . $size);
 			ob_end_flush(); //Output the buffer and clear it
-			
-			//If mecache is enabled and the image will fit, cache it for 7 days
-			if(MEMCACHE_ENABLE && $size < 1048576 && $memcached_connected){
-				$memcache->set($key, array('data'=>$dat, 'type' => $type), NULL, 7*24*60*60);
-			}
 			
 			$log_file = CONTENT_DIR . 'render/render_log';
 			if($fh = @fopen($log_file, 'a')){
